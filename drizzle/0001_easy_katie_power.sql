@@ -1,0 +1,1 @@
+ALTER TABLE `takes` ADD `markers` text DEFAULT '[]' NOT NULL;

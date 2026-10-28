@@ -1,0 +1,20 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1793177273347,
+      "tag": "0000_brave_arclight",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1793178353918,
+      "tag": "0001_easy_katie_power",
+      "breakpoints": true
+    }
+  ]
+}

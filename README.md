@@ -44,3 +44,16 @@ Publicリポジトリには**パスワード、APIキー、秘密鍵、実ユー
 ## ライセンス
 
 未決定です。**Public = 自由な再利用を許可するライセンス**ではありません。ライセンスは別途決定します。
+
+## 非公開実装版
+
+ゲーム型UIとD1/R2保存を実装したprivate alphaです。最新の実装範囲・制約は [検証記録](docs/QA.md)、[デザイン仕様](docs/DESIGN.md)、[変更履歴](docs/CHANGELOG.md) を参照してください。
+
+```sh
+pnpm install --frozen-lockfile
+pnpm exec tsc --noEmit
+node tests/api.test.mjs
+pnpm build
+```
+
+Sitesの公開用manifestは `.openai/hosting.json`。DB migrationは `drizzle/`。作品/音声はGitに保存しません。運営権限が必要な場合のみ、サーバー環境変数 `SCENE_MODERATOR_IDS` にSites内の許可するユーザーIDを設定します。値そのものはコミットしません。
