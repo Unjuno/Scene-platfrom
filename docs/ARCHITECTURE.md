@@ -165,3 +165,19 @@ User ── reports ──> ModerationReport
 6. 作者が作品を更新しても、旧アフレコが参照する版は壊れない。
 7. 読み込みの失敗・録音拒否・離脱復帰が画面上で説明される。
 8. スマートフォン実機で操作できる。
+
+## 8. 非公開実装版の具体構成（2026-10-28）
+
+- React 19 / TypeScript / Vinext。Sitesの標準Workerエントリとsites()統合を保持。
+- D1: works, work_versions, version_assets, assets, takes, dubs, dub_takes, ratings, profiles, reports, audit。画像/台本はimmutable work_version、アフレコはversion_id固定。
+- R2: `assets/<UUID>`。直接公開バケットURLは発行せず、`GET /api/assets/:id`でD1可視性を検証。Rangeを解析して音声シーク対応。レスポンスはprivate/no-store、nosniff。
+- ChatGPTのdispatchが注入するIDを所有者キーにする。クライアントからowner_idは受け付けない。製品に独自ログイン/テストユーザーは追加しない。
+- アフレコ公開はSELECT時だけでなく書込SQLのEXISTS条件でも現行許可を確認。非公開テイクと採用テイクの関連付けを区別。
+- 作品保存はbaseVersionによる楽観ロック。複数SQLはD1 batch。作品更新と公開版作成を一組で扱う。
+- 評価の複合主キーは(target_type,target_id,user_id)。再投稿はUPSERT。一つのアカウントの多重票を防ぐが、複数アカウントの組織票対策は未実装。
+- モデレーターはサーバー環境変数SCENE_MODERATOR_IDSの許可リスト。初期状態では未設定で権限を与えない。通報の閲覧・非公開化・対応不要・監査ログを実装。
+- 閲覧は次の一枚のみ先読み。編集は圧縮Blobを逐次取得しobject URLとして保持、全画像を一斉にデコードしない。URLは終了時に解放。
+- メディアは形式のシグネチャ確認、APNG/アニメWebP拒否。サーバー側の完全な音声デコード/トランスコード/ウイルススキャンは未実装。
+- GitHubにはコード、架空サンプル、仕様、テストのみ。D1/R2、.env、.wrangler、出力アーカイブは対象外。
+
+APIの具体実装はlib/api.ts、DB構造はdb/schema.ts。容量、バックアップ復旧、保持・完全消去、公開運営の規約/異議申立ては一般公開前の課題。
