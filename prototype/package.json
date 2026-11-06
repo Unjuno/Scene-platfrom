@@ -1,0 +1,12 @@
+{
+  "name":"scene-theater-prototype",
+  "private":true,
+  "version":"1.0.0",
+  "type":"module",
+  "scripts":{
+    "test":"node --test tests/*.test.mjs",
+    "check":"node --check app.mjs && node --check src/machines.mjs && node --check src/domain.mjs && node --check src/storage.mjs",
+    "dev":"python3 -m http.server 8000 --bind 127.0.0.1"
+  },
+  "engines":{"node":">=20"}
+}
