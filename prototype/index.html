@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b1219">
+  <meta name="description" content="SCENE — 同じ絵、違う声、広がる物語。静止画でつくり、声で演じる、参加型ストーリーシアター。">
+  <title>SCENE — 物語が、幕を開ける。</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<a class="skip-link" href="#app-main">本文へ移動</a>
+<canvas id="ambient-canvas" aria-hidden="true"></canvas>
+<div class="layout" id="app-shell">
+  <aside class="sidebar" aria-label="メインナビゲーション">
+    <a class="brand" href="#/lobby" aria-label="SCENE — ロビーへ">
+      <span class="brand-emblem" aria-hidden="true">✦</span>
+      <span class="brand-word">SCENE<span class="brand-jp">物語の劇場</span></span>
+    </a>
+    <div class="nav-group-label">YOUR STORY AWAITS</div>
+    <nav class="side-nav" aria-label="主要メニュー">
+      <a class="nav-link" data-route="lobby" href="#/lobby"><span class="nav-icon" aria-hidden="true">⌂</span><span class="nav-copy"><b>ロビー</b><small>THE LOBBY</small></span><span class="nav-num">01</span></a>
+      <a class="nav-link" data-route="explore" href="#/explore"><span class="nav-icon" aria-hidden="true">◇</span><span class="nav-copy"><b>物語を観る</b><small>EXPLORE</small></span><span class="nav-num">02</span></a>
+      <a class="nav-link" data-route="create" href="#/create"><span class="nav-icon" aria-hidden="true">✎</span><span class="nav-copy"><b>物語をつくる</b><small>CREATE</small></span><span class="nav-num">03</span></a>
+      <a class="nav-link" data-route="perform" href="#/perform"><span class="nav-icon" aria-hidden="true">♫</span><span class="nav-copy"><b>声で参加する</b><small>PERFORM</small></span><span class="nav-num">04</span></a>
+      <a class="nav-link" data-route="library" href="#/library"><span class="nav-icon" aria-hidden="true">▤</span><span class="nav-copy"><b>自分の作品</b><small>LIBRARY</small></span><span class="nav-num">05</span></a>
+    </nav>
+    <div class="sidebar-foot">
+      <div class="foot-stamp">S<span>C</span>ENE</div>
+      <p>同じ絵、違う声、<br>広がる物語。</p>
+      <span class="sidebar-version">EXPERIMENTAL STUDIO / v1.0</span>
+    </div>
+  </aside>
+  <div class="main-column">
+    <header class="topbar">
+      <div class="breadcrumb"><span class="breadcrumb-mark">✦</span><span>SCENE</span><span class="sep">/</span><span id="breadcrumb-current">ロビー</span></div>
+      <div class="topbar-right"><span class="local-indicator"><span class="status-dot"></span> ローカル試作</span><a class="howto-link" href="#/about">使い方 <span aria-hidden="true">↗</span></a></div>
+    </header>
+    <main id="app-main" tabindex="-1" aria-label="SCENEメインコンテンツ"></main>
+    <footer class="footer"><span>SCENE · A STORY CAN HAVE MANY VOICES.</span><span>画像・台本・声を、ひとつの舞台へ。</span></footer>
+  </div>
+</div>
+<nav class="mobile-nav" aria-label="スマートフォン用メニュー">
+  <a data-route="lobby" href="#/lobby"><span aria-hidden="true">⌂</span><small>ロビー</small></a>
+  <a data-route="explore" href="#/explore"><span aria-hidden="true">◇</span><small>観る</small></a>
+  <a data-route="create" href="#/create"><span aria-hidden="true">✎</span><small>つくる</small></a>
+  <a data-route="perform" href="#/perform"><span aria-hidden="true">♫</span><small>演じる</small></a>
+  <a data-route="library" href="#/library"><span aria-hidden="true">▤</span><small>作品</small></a>
+</nav>
+<div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+<script type="module" src="./app.mjs"></script>
+</body>
+</html>
