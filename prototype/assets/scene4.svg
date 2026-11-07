@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="朝日が差す窓辺に届いた手紙">
+<defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#eed9ad"/><stop offset="1" stop-color="#f9ead0"/></linearGradient><linearGradient id="wood" x2="0" y2="1"><stop stop-color="#876649"/><stop offset="1" stop-color="#60432e"/></linearGradient></defs>
+<rect width="1200" height="750" fill="#eadcc5"/><rect x="130" y="44" width="950" height="548" rx="8" fill="url(#wood)"/><rect x="163" y="78" width="884" height="480" fill="url(#sky)"/><circle cx="818" cy="302" r="114" fill="#f3b879" opacity=".8"/>
+<path d="M163 422Q368 274 554 440Q781 320 1047 427V558H163Z" fill="#c9b78d"/><path d="M163 496Q422 409 694 516Q858 433 1047 488V558H163Z" fill="#819580"/>
+<path d="M600 55V566M154 319H1054" stroke="url(#wood)" stroke-width="31"/><path d="M0 570H1200V750H0Z" fill="#ac8963"/><path d="M0 605H1200" stroke="#dac19b" stroke-width="23"/>
+<g transform="translate(530 611) rotate(5)"><path d="M-175-72H175V72H-175Z" fill="#fff7e6" stroke="#c9ae82" stroke-width="8"/><path d="M-175-72L0 29 175-72" fill="none" stroke="#d2b791" stroke-width="7"/><circle cx="0" cy="-17" r="22" fill="#b95e49"/></g>
+<g transform="translate(946 601)"><rect x="-21" y="-80" width="42" height="119" rx="5" fill="#667a58"/><path d="M-15-74q-116-42-93-130q87 5 93 91M17-77q108-30 85-128q-90 22-85 91" fill="#799572"/><path d="M-23-52Q-90-82-76-152M18-44Q87-91 63-153" fill="none" stroke="#567457" stroke-width="5"/></g></svg>
