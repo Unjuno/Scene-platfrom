@@ -1,0 +1,38 @@
+name: SCENE checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  unit-and-bundle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Syntax check
+        run: cd prototype && npm run check
+      - name: FSM and UI contract tests
+        run: cd prototype && npm test
+      - name: Build standalone offline preview
+        run: python3 scripts/build_standalone.py
+      - name: Verify bundled preview is self-contained
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          doc = Path('scene-redesign-preview.html').read_text()
+          assert 'const esc = safeText;' in doc
+          assert '<script type="module">' in doc
+          assert '<style>' in doc
+          assert 'assets/scene1.svg' not in doc
+          assert '<title>SCENE' in doc
+          print('Bundled SCENE preview checks passed')
+          PY
